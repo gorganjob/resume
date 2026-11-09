@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رزومه‌ساز رایگان گرگان جاب</title>
+<meta name="description" content="رزومه‌ساز رایگان فارسی با جمله‌های آماده، چند قالب حرفه‌ای و دانلود PDF - گرگان جاب">
+<meta name="theme-color" content="#ffc800">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f6f3;--card:#fff;--tx:#1a1a1a;--mut:#666;--bd:#ddd;--y:#ffc800;--chip:#fff7d1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--card:#1f1f1f;--tx:#f2f2f2;--mut:#aaa;--bd:#383838;--chip:#3a3200}}
+*{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.8}
+header{background:var(--y);color:#111;padding:14px 16px;font-weight:800;font-size:1.15rem;text-align:center}
+header small{display:block;font-weight:400;font-size:.8rem}
+main{max-width:1100px;margin:auto;padding:12px;display:grid;gap:14px}
+@media(min-width:900px){main{grid-template-columns:1fr 1fr;align-items:start}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+h2{font-size:1rem;margin:0 0 8px;border-right:4px solid var(--y);padding-right:8px}
+label{display:block;font-size:.82rem;color:var(--mut);margin-top:8px}
+input,textarea{width:100%;font:inherit;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+textarea{min-height:70px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:9px 14px}
+.main{background:var(--y);color:#111;font-weight:800;width:100%;margin-top:10px}
+.ghost{background:var(--chip);color:var(--tx);margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chips button{background:var(--chip);color:var(--tx);font-size:.78rem;padding:4px 9px;border:1px solid var(--bd);text-align:right}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{background:var(--bg);color:var(--tx);border:1px solid var(--bd);font-size:.8rem;padding:4px 10px}
+.tabs button.on{background:var(--y);color:#111}
+.exp{border:1px dashed var(--bd);border-radius:10px;padding:8px;margin-top:8px}
+.x{background:none;color:#c33;padding:0;font-size:.8rem}
+#paper{background:#fff;color:#111;width:100%;max-width:794px;min-height:600px;margin:auto;padding:28px;border:1px solid var(--bd);border-radius:6px;font-size:.92rem}
+#paper h1{margin:0;font-size:1.6rem}
+#paper .t{color:#555;font-size:1.05rem}
+#paper .ct{font-size:.82rem;color:#444;margin:4px 0 10px;border-bottom:3px solid var(--y);padding-bottom:8px}
+#paper h3{font-size:.95rem;margin:14px 0 4px;background:#f3f3f3;padding:2px 8px;border-right:4px solid var(--y)}
+#paper p{margin:2px 0;white-space:pre-wrap}
+#paper .it{margin-top:6px}
+#paper .it b{display:block}
+#paper .it span{font-size:.8rem;color:#555}
+.sk{display:flex;flex-wrap:wrap;gap:5px}.sk i{font-style:normal;border:1px solid #bbb;border-radius:12px;padding:0 9px;font-size:.82rem}
+#paper .hd,#paper .bd{padding:0}
+#paper.t2{padding:0}#paper.t2 .hd{background:#111;padding:24px 28px}#paper.t2 h1{color:#ffc800}#paper.t2 .t{color:#ddd}#paper.t2 .ct{color:#ccc;border:0;margin-bottom:0;padding-bottom:0}#paper.t2 .bd{padding:6px 28px 28px}#paper.t2 h3{background:none;padding:0 8px;font-size:1rem}#paper.t2 .sk i{background:#ffc800;border-color:#ffc800}
+#paper.t3 .hd{text-align:center}#paper.t3 .ct{border-bottom:1px solid #999}#paper.t3 h3{background:none;border-right:0;border-bottom:1px solid #ccc;padding:0;letter-spacing:.5px}#paper.t3 .sk i{border:0;padding:0}#paper.t3 .sk i:not(:last-child)::after{content:" ·"}
+select{width:100%;font:inherit;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+#paper.t4,#paper.t5,#paper.t6,#paper.t7,#paper.t9{padding:0}
+#paper.t4 .hd,#paper.t5 .hd,#paper.t6 .hd,#paper.t7 .hd,#paper.t9 .hd{padding:24px 28px}
+#paper.t4 .bd,#paper.t5 .bd,#paper.t6 .bd,#paper.t7 .bd,#paper.t9 .bd{padding:8px 28px 28px}
+#paper.t4 .hd{background:#1e3a8a;color:#fff}#paper.t4 .t{color:#c7d2fe}#paper.t4 .ct{color:#dbe4ff;border:0;margin:0;padding:0}#paper.t4 h3{background:none;color:#1e3a8a;border-color:#1e3a8a}#paper.t4 .sk i{background:#e0e7ff;border-color:#1e3a8a}
+#paper.t5 .hd{background:#ecfdf3}#paper.t5 h1{color:#166534}#paper.t5 .ct{border-color:#16a34a;margin-bottom:0}#paper.t5 h3{background:#16a34a;color:#fff;border:0;padding:2px 10px}#paper.t5 .sk i{border-color:#16a34a}
+#paper.t6 .hd{border-bottom:4px solid #ffc800}#paper.t6 .ct{border:0;margin:0;padding:0}
+#paper.t6 .bd,#paper.t7 .bd{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start}
+#paper.t6 .sd,#paper.t7 .sd{order:-1;padding:6px 14px 14px;border-radius:8px}
+#paper.t6 .sd{background:#faf6e6}#paper.t6 h3,#paper.t7 h3{background:none}
+#paper.t7 .hd{background:#111;color:#fff}#paper.t7 h1{color:#ffc800}#paper.t7 .t{color:#ddd}#paper.t7 .ct{color:#ccc;border:0;margin:0;padding:0}
+#paper.t7 .sd{background:#1c1c1c;color:#eee}#paper.t7 .sd h3{color:#ffc800}#paper.t7 .sk i{border-color:#ffc800}
+#paper.t8{font-size:1.02rem;border-top:12px solid #ffc800}#paper.t8 h1{font-size:2.2rem;font-weight:800}#paper.t8 .ct{border-bottom:2px solid #111}#paper.t8 h3{background:#111;color:#ffc800;border:0;padding:3px 10px}#paper.t8 .sk i{background:#fff7d1;border-color:#111;font-weight:600}
+#paper.t9 .hd{background:linear-gradient(135deg,#6d28d9,#a855f7);color:#fff}#paper.t9 .t{color:#f3e8ff}#paper.t9 .ct{color:#f3e8ff;border:0;margin:0;padding:0}#paper.t9 h3{background:none;color:#6d28d9;border:0;border-bottom:2px solid #ddd6fe;padding:0}#paper.t9 .sk i{background:#f3e8ff;border-color:#a855f7}
+@media(max-width:600px){#paper.t6 .bd,#paper.t7 .bd{grid-template-columns:1fr}}
+.chips button.sel{background:var(--y);color:#111;border-color:#111;font-weight:600}.chips button.sel::before{content:"✓ "}
+textarea[data-k="d"],#summary,#skills{border:2px solid var(--y);background:var(--chip)}
+.exp textarea.tgt{box-shadow:0 0 0 4px #ffc80099}
+.hint{font-size:.78rem;color:var(--mut);margin:2px 0 4px}
+.tg{font-size:.82rem;background:var(--chip);border:1px dashed var(--y);padding:4px 8px;border-radius:8px;margin-top:6px}
+.lg{display:block;margin:0 auto 4px}
+.ig{display:inline-block;margin-top:6px;background:#111;color:#ffc800;border-radius:20px;padding:2px 14px;font-size:.82rem;text-decoration:none;direction:ltr}
+body{padding-bottom:calc(46px + env(safe-area-inset-bottom,0px))}
+.tk{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#111;color:#ffc800;overflow:hidden;white-space:nowrap;text-decoration:none;font-weight:600;font-size:.88rem;padding:9px 0 calc(9px + env(safe-area-inset-bottom,0px));border-top:3px solid #ffc800}
+.tr{display:inline-flex;gap:28px;animation:mv 75s linear infinite;will-change:transform}
+.tr b{color:#fff}
+@keyframes mv{to{transform:translateX(50%)}}
+@media(prefers-reduced-motion:reduce){.tr{animation:none}}
+.foot{text-align:center;color:var(--mut);font-size:.75rem;padding:10px}
+@media print{
+ body *{visibility:hidden}#paper,#paper *{visibility:visible}
+ #paper{position:absolute;inset:0;border:0;max-width:none;padding:0}
+ :root{padding:0}@page{margin:14mm}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header><a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener" aria-label="Gorgan Job"><svg class="lg" viewBox="0 0 100 100" width="64" height="64" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="46" fill="#ffc800" stroke="#111" stroke-width="4"/><text x="50" y="46" text-anchor="middle" font-family="Vazirmatn,Tahoma,sans-serif" font-weight="800" font-size="21" fill="#111">گرگان</text><text x="50" y="73" text-anchor="middle" font-family="Vazirmatn,Tahoma,sans-serif" font-weight="800" font-size="26" fill="#111">جاب</text></svg></a>رزومه‌ساز گرگان جاب<small>رایگان بساز، پیش‌نمایش ببین، PDF بگیر</small></header>
+<main>
+<section>
+ <div class="card">
+  <h2>اطلاعات شخصی</h2>
+  <div class="row"><div><label>نام و نام خانوادگی</label><input id="name"></div><div><label>عنوان شغلی مورد نظر</label><input id="title" placeholder="مثلاً حسابدار"></div></div>
+  <div class="row"><div><label>شماره تماس</label><input id="phone" inputmode="tel"></div><div><label>ایمیل</label><input id="email" dir="ltr"></div></div>
+  <div class="row"><div><label>شهر</label><input id="city" value="گرگان"></div><div><label>سال تولد</label><input id="birth" inputmode="numeric"></div></div>
+ </div>
+ <div class="card" style="margin-top:14px">
+  <h2>درباره من (خلاصه)</h2>
+  <div class="hint">✍️ جمله‌هایی که انتخاب می‌کنید در همین کادر زرد اضافه می‌شود (دوباره بزنید تا حذف شود)</div><textarea id="summary"></textarea>
+  <div class="chips" data-bank="summary"></div>
+ </div>
+ <div class="card" style="margin-top:14px">
+  <h2>سوابق کاری</h2>
+  <div id="exps"></div>
+  <button class="ghost" id="addExp">+ افزودن سابقه</button>
+  <label>جمله‌های آماده (روی هر کدام بزنید تا به سابقه انتخاب‌شده اضافه شود)</label>
+  <div id="dutyTarget" class="tg"></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="chips" id="dutyChips"></div>
+ </div>
+ <div class="card" style="margin-top:14px">
+  <h2>تحصیلات</h2>
+  <div id="edus"></div><button class="ghost" id="addEdu" style="width:100%">+ افزودن مدرک دیگر</button><textarea id="edu" hidden style="display:none" placeholder="هر مورد در یک خط؛ مثلاً: کارشناسی حسابداری - دانشگاه گلستان - ۱۴۰۱"></textarea>
+ </div>
+ <div class="card" style="margin-top:14px">
+  <h2>مهارت‌ها</h2>
+  <div class="hint">✍️ مهارت‌های انتخاب‌شده در همین کادر زرد اضافه می‌شود (دوباره بزنید تا حذف شود)</div><input id="skills" placeholder="با ویرگول جدا کنید: اکسل، ارتباط مؤثر، کار تیمی">
+  <div class="chips" data-bank="skills"></div>
+ </div>
+</section>
+<section>
+ <div class="card">
+  <h2>پیش‌نمایش</h2>
+  <div class="tabs" id="tpls" style="margin-bottom:10px"></div>
+  <div id="paper"></div>
+  <button class="main" id="pdf">دانلود PDF</button>
+  <button class="ghost" id="reset" style="width:100%">پاک کردن همه</button>
+ </div>
+</section>
+</main>
+<div class="foot"><a class="ig" href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener">📷 instagram.com/gorganjob</a><br><a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener" style="color:inherit">ساخته‌شده توسط گرگان جاب | @Gorganjob</a><br>📘 کتاب «رزومه برنده»: کلمه «رزومه» را در دایرکت اینستاگرام بفرستید<br>اگر دکمه PDF کار نکرد، صفحه را در مرورگر اصلی باز کنید و «ذخیره به‌صورت PDF» را انتخاب کنید.</div>
+<a class="tk" href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener"><span class="tr" id="tr"></span></a>
+<script>
+const $=id=>document.getElementById(id);
+const BANK={
+ summary:["فردی منظم، مسئولیت‌پذیر و علاقه‌مند به یادگیری مهارت‌های جدید هستم.","به‌دنبال فرصتی برای رشد حرفه‌ای و کمک به پیشرفت مجموعه هستم.","توانایی کار تیمی و برقراری ارتباط مؤثر با همکاران و مشتریان را دارم.","دقیق، وقت‌شناس و متعهد به انجام کارها در زمان مقرر هستم.","در کار با نرم‌افزارهای اداری و اینترنت تسلط خوبی دارم."],
+ skills:["کار تیمی","مدیریت زمان","ارتباط مؤثر","حل مسئله","مسئولیت‌پذیری","اکسل","ورد","اینترنت و ایمیل","تایپ سریع","رانندگی (گواهینامه)","زبان انگلیسی"]
+};
+const DUTIES={
+ "اداری":["مدیریت مکاتبات و بایگانی مدارک","پاسخ‌گویی به تلفن و هماهنگی قرارها","تنظیم گزارش‌های روزانه و هفتگی","ورود اطلاعات در نرم‌افزار با دقت بالا"],
+ "فروشگاه":["پاسخ‌گویی به مشتریان و راهنمایی در انتخاب کالا","چیدمان کالا و کنترل موجودی انبار","صندوق‌داری و تنظیم فاکتور","پیگیری سفارش‌ها و رضایت مشتری"],
+ "خدماتی":["سرو سفارش‌ها و حفظ نظافت محیط کار","برخورد مناسب و محترمانه با مشتریان","آماده‌سازی مواد اولیه و تجهیزات","همکاری با تیم در ساعات شلوغ"],
+ "فنی و کارگاهی":["انجام کار فنی طبق نقشه و دستورالعمل","رعایت اصول ایمنی در محیط کار","تعمیر و نگهداری تجهیزات","همکاری با تیم برای تحویل به‌موقع پروژه"],
+ "آموزشی":["تدریس و آماده‌سازی طرح درس","ارزیابی پیشرفت فراگیران و ارائه بازخورد","برقراری ارتباط با والدین","طراحی تمرین و محتوای آموزشی"]
+};
+let edus=[{l:"",f:"",u:"",y:""}];let exps=[{t:"",c:"",p:"",d:""}],lastTA=null,tab="اداری";
+const KEYS=["name","title","phone","email","city","birth","summary","skills"];
+function save(){try{localStorage.setItem("gj_resume",JSON.stringify({f:Object.fromEntries(KEYS.map(k=>[k,$(k).value])),exps,edus}))}catch(e){}}
+function load(){try{const s=JSON.parse(localStorage.getItem("gj_resume")||"null");if(s){KEYS.forEach(k=>$(k).value=s.f[k]||"");exps=s.exps&&s.exps.length?s.exps:exps;edus=s.edus&&s.edus.length?s.edus:edus}}catch(e){}}
+function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function renderExps(){
+ $("exps").innerHTML=exps.map((e,i)=>`<div class="exp"><div class="row"><div><label>سمت</label><input data-i="${i}" data-k="t" value="${esc(e.t)}"></div><div><label>محل کار</label><input data-i="${i}" data-k="c" value="${esc(e.c)}"></div></div><label>مدت (مثلاً ۱۴۰۰ تا ۱۴۰۳)</label><input data-i="${i}" data-k="p" value="${esc(e.p)}"><label>شرح وظایف ✍️ (جمله‌های انتخاب‌شده اینجا اضافه می‌شود)</label><textarea data-i="${i}" data-k="d">${esc(e.d)}</textarea>${exps.length>1?`<button class="x" data-del="${i}">حذف</button>`:""}</div>`).join("");
+}
+const LV=["","زیر دیپلم","دیپلم","کاردانی","کارشناسی","کارشناسی ارشد","دکتری","مهارتی (فنی‌وحرفه‌ای)","حوزوی"];
+function renderEdus(){$("edus").innerHTML=edus.map((e,i)=>`<div class="exp"><label>مقطع تحصیلی</label><select data-e="${i}" data-k="l">${LV.map(x=>`<option value="${x}"${x===e.l?" selected":""}>${x||"انتخاب کنید"}</option>`).join("")}</select><div class="row"><div><label>رشته</label><input data-e="${i}" data-k="f" value="${esc(e.f)}"></div><div><label>محل تحصیل</label><input data-e="${i}" data-k="u" value="${esc(e.u)}"></div></div><label>سال پایان</label><input data-e="${i}" data-k="y" inputmode="numeric" value="${esc(e.y)}">${edus.length>1?`<button class="x" data-del-e="${i}">حذف</button>`:""}</div>`).join("")}
+function renderChips(){
+ document.querySelectorAll("[data-bank]").forEach(b=>{const k=b.dataset.bank;b.innerHTML=BANK[k].map(s=>`<button data-add="${k}">${s}</button>`).join("")});
+ $("tabs").innerHTML=Object.keys(DUTIES).map(k=>`<button class="${k===tab?"on":""}" data-tab="${k}">${k}</button>`).join("");
+ $("dutyChips").innerHTML=DUTIES[tab].map(s=>`<button data-duty="${s}">${s}</button>`).join("");
+}
+function paper(){
+ const v=k=>$(k).value.trim();
+ const ct=[v("phone"),v("email"),v("city"),v("birth")?"متولد "+v("birth"):""].filter(Boolean).join("  |  ");
+ let h=`<div class="hd"><h1>${esc(v("name")||"نام و نام خانوادگی")}</h1><div class="t">${esc(v("title"))}</div><div class="ct">${esc(ct)}</div></div><div class="bd">`;
+ let m="",sd="";if(v("summary"))m+=`<h3>درباره من</h3><p>${esc(v("summary"))}</p>`;
+ const ex=exps.filter(e=>e.t||e.c||e.d);
+ if(ex.length)m+=`<h3>سوابق کاری</h3>`+ex.map(e=>`<div class="it"><b>${esc(e.t)}${e.c?" - "+esc(e.c):""}</b><span>${esc(e.p)}</span><p>${esc(e.d)}</p></div>`).join("");
+ if(0)h+=`<h3>تحصیلات</h3><p>${esc(v("edu"))}</p>`;
+ const ed=edus.filter(e=>e.l||e.f||e.u);if(ed.length)sd+='<h3>تحصیلات</h3>'+ed.map(e=>`<p>${esc([e.l,e.f].filter(Boolean).join(" "))}${e.u?" - "+esc(e.u):""}${e.y?" ("+esc(e.y)+")":""}</p>`).join("");
+ const sk=v("skills").split(/[,،]/).map(s=>s.trim()).filter(Boolean);
+ if(sk.length)sd+=`<h3>مهارت‌ها</h3><div class="sk">${sk.map(s=>`<i>${esc(s)}</i>`).join("")}</div>`;
+ $("paper").className="t"+tpl;$("paper").innerHTML=h+`<div class="m">${m}</div><div class="sd">${sd}</div></div>`;
+}
+function addTo(el,t){if(!el)return;const v=el.value.trim();el.value=v?(el.tagName==="TEXTAREA"?v+"\n- "+t:v+"، "+t):(el.tagName==="TEXTAREA"?"- "+t:t);el.dispatchEvent(new Event("input",{bubbles:true}))}
+document.addEventListener("focusin",e=>{if(e.target.tagName==="TEXTAREA"&&e.target.dataset.k==="d")lastTA=e.target});
+document.addEventListener("input",e=>{const t=e.target;if(t.dataset&&t.dataset.i!==undefined){exps[t.dataset.i][t.dataset.k]=t.value}
+ if(t.dataset&&t.dataset.e!==undefined){edus[t.dataset.e][t.dataset.k]=t.value}save();paper()});
+document.addEventListener("click",e=>{const t=e.target;
+ if(t.dataset.tab){tab=t.dataset.tab;renderChips()}
+ if(t.dataset.tpl){tpl=+t.dataset.tpl;try{localStorage.setItem("gj_tpl",tpl)}catch(x){}renderTpls();paper()}
+ if(t.dataset.add){const k=t.dataset.add;addTo($(k),k==="summary"?" "+t.textContent:t.textContent)}
+ if(t.dataset.duty){const el=lastTA||document.querySelector('textarea[data-k="d"]');addTo(el,t.dataset.duty)}
+ if(t.dataset.delE!==undefined){edus.splice(+t.dataset.delE,1);renderEdus();save();paper()}
+ if(t.dataset.del!==undefined){exps.splice(+t.dataset.del,1);renderExps();save();paper()}
+});
+$("addEdu").onclick=()=>{edus.push({l:"",f:"",u:"",y:""});renderEdus();save()};
+$("addExp").onclick=()=>{exps.push({t:"",c:"",p:"",d:""});renderExps();save()};
+$("pdf").onclick=()=>{paper();window.print()};
+$("reset").onclick=()=>{if(confirm("همه اطلاعات پاک شود؟")){KEYS.forEach(k=>$(k).value=k==="city"?"گرگان":"");exps=[{t:"",c:"",p:"",d:""}];lastTA=null;edus=[{l:"",f:"",u:"",y:""}];renderEdus();renderExps();save();paper()}};
+let tpl=1;try{tpl=+localStorage.getItem("gj_tpl")||1}catch(e){}
+function renderTpls(){$("tpls").innerHTML=[[1,"کلاسیک"],[2,"مدرن"],[3,"مینیمال"]].map(([n,l])=>`<button class="${n===tpl?"on":""}" data-tpl="${n}">${l}</button>`).join("")}
+function renderTpls(){$("tpls").innerHTML=["کلاسیک","مدرن","مینیمال","سرمه‌ای","سبز","دوستونه","تیره دوستونه","کارگاهی","بنفش"].map((l,i)=>`<button class="${i+1===tpl?"on":""}" data-tpl="${i+1}">${l}</button>`).join("")}
+function addTo(el,t){if(!el)return;t=t.trim();let v=el.value;
+ if(el.id==="summary"){el.value=v.includes(t)?v.replace(t,"").replace(/\s{2,}/g," ").trim():(v.trim()?v.trim()+" "+t:t)}
+ else if(el.tagName==="TEXTAREA"){const L=v.split("\n").map(s=>s.trim()).filter(Boolean);const i=L.indexOf("- "+t);if(i>-1)L.splice(i,1);else L.push("- "+t);el.value=L.join("\n")}
+ else{const L=v.split(/[,،]/).map(s=>s.trim()).filter(Boolean);const i=L.indexOf(t);if(i>-1)L.splice(i,1);else L.push(t);el.value=L.join("، ")}
+ el.dispatchEvent(new Event("input",{bubbles:true}))}
+function has(el,t){if(!el)return false;const v=el.value;if(el.id==="summary")return v.includes(t);if(el.tagName==="TEXTAREA")return v.split("\n").some(s=>s.trim()==="- "+t);return v.split(/[,،]/).some(s=>s.trim()===t)}
+function markChips(){if(lastTA&&!document.contains(lastTA))lastTA=null;
+ document.querySelectorAll("[data-add]").forEach(b=>b.classList.toggle("sel",has($(b.dataset.add),b.textContent.trim())));
+ const el=lastTA||document.querySelector('textarea[data-k="d"]');
+ document.querySelectorAll("[data-duty]").forEach(b=>b.classList.toggle("sel",has(el,b.dataset.duty)));
+ document.querySelectorAll('textarea[data-k="d"]').forEach(x=>x.classList.toggle("tgt",x===el));
+ $("dutyTarget").textContent=el?"✍️ جمله‌ها به «سابقه شماره "+(+el.dataset.i+1)+"» اضافه می‌شود (برای تغییر، داخل کادر سابقه دیگر کلیک کنید)":""}
+document.addEventListener("input",markChips);document.addEventListener("focusin",()=>setTimeout(markChips));document.addEventListener("click",()=>setTimeout(markChips));
+DUTIES["درمانی"]=["پذیرش بیماران و تکمیل پرونده پزشکی","نوبت‌دهی و هماهنگی قرار ملاقات بیماران","همکاری با پزشک در معاینه و انجام مراقبت‌های درمانی","رعایت اصول بهداشت و ضدعفونی تجهیزات","آماده‌سازی و استریل ابزار پزشکی","پایش و مراقبت از وضعیت بیماران","راهنمایی بیماران درباره مصرف صحیح دارو","کنترل موجودی دارو و لوازم مصرفی","برخورد همدلانه و محترمانه با بیماران و همراهان"];
+load();renderExps();renderEdus();renderChips();renderTpls();paper();markChips();
+const TK="<span>📘 کتاب «رزومه برنده» | کلمه «رزومه» را در دایرکت اینستاگرام @Gorganjob بفرستید</span><b>✦</b>";$("tr").innerHTML=("<span>📘 کتاب «رزومه برنده»: راهنمای کامل نوشتن رزومه حرفه‌ای شامل اصول رزومه‌نویسی، نمونه‌های آماده، جمله‌های آماده، نکات ارسال رزومه و مصاحبه و چک‌لیست نهایی | برای دریافت کتاب، کلمه «رزومه» را در دایرکت گرگان جاب بفرستید</span><b>✦</b>").repeat(8);
+</script>
+</body>
+</html>
