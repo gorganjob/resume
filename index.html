@@ -75,6 +75,11 @@ body{padding-bottom:calc(46px + env(safe-area-inset-bottom,0px))}
 .tr b{color:#fff}
 @keyframes mv{to{transform:translateX(50%)}}
 @media(prefers-reduced-motion:reduce){.tr{animation:none}}
+.sc{position:relative;width:120px;height:120px;border-radius:50%;margin:10px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--bd) 0)}
+.sc::before{content:"";position:absolute;inset:10px;background:var(--card);border-radius:50%}
+.sc b,.sc small{position:relative;line-height:1.2}.sc b{font-size:2rem}
+.ck{font-size:.85rem;padding:6px 8px;border-radius:8px;margin-top:6px;background:var(--chip)}
+.okc{display:inline-block;font-size:.78rem;background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:0 8px;margin:2px}
 .foot{text-align:center;color:var(--mut);font-size:.75rem;padding:10px}
 @media print{
  body *{visibility:hidden}#paper,#paper *{visibility:visible}
@@ -125,6 +130,7 @@ body{padding-bottom:calc(46px + env(safe-area-inset-bottom,0px))}
   <button class="main" id="pdf">دانلود PDF</button>
   <button class="ghost" id="reset" style="width:100%">پاک کردن همه</button>
  </div>
+<div class="card" id="atsCard" style="margin-top:14px"><h2>تحلیلگر رزومه (ATS)</h2><div class="hint">رزومه شما را بررسی می‌کند، از ۱۰۰ امتیاز می‌دهد و نقاط ضعف را نشان می‌دهد.</div><div id="atsOut"></div></div>
 </section>
 </main>
 <div class="foot"><a class="ig" href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener">📷 instagram.com/gorganjob</a><br><a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener" style="color:inherit">ساخته‌شده توسط گرگان جاب | @Gorganjob</a><br>📘 کتاب «رزومه برنده»: کلمه «رزومه» را در دایرکت اینستاگرام بفرستید<br>اگر دکمه PDF کار نکرد، صفحه را در مرورگر اصلی باز کنید و «ذخیره به‌صورت PDF» را انتخاب کنید.</div>
@@ -203,6 +209,47 @@ function markChips(){if(lastTA&&!document.contains(lastTA))lastTA=null;
  $("dutyTarget").textContent=el?"✍️ جمله‌ها به «سابقه شماره "+(+el.dataset.i+1)+"» اضافه می‌شود (برای تغییر، داخل کادر سابقه دیگر کلیک کنید)":""}
 document.addEventListener("input",markChips);document.addEventListener("focusin",()=>setTimeout(markChips));document.addEventListener("click",()=>setTimeout(markChips));
 DUTIES["درمانی"]=["پذیرش بیماران و تکمیل پرونده پزشکی","نوبت‌دهی و هماهنگی قرار ملاقات بیماران","همکاری با پزشک در معاینه و انجام مراقبت‌های درمانی","رعایت اصول بهداشت و ضدعفونی تجهیزات","آماده‌سازی و استریل ابزار پزشکی","پایش و مراقبت از وضعیت بیماران","راهنمایی بیماران درباره مصرف صحیح دارو","کنترل موجودی دارو و لوازم مصرفی","برخورد همدلانه و محترمانه با بیماران و همراهان"];
+const SW=new Set("و در به از که این را با برای یا هم تا بر است شد می شود هستند باید یک آن نیز اما اگر هر همه بین مورد موارد مانند بسیار حداقل سال سابقه آگهی جذب استخدام نیازمند شرایط متقاضی خانم آقا داشتن دارای مسلط آشنا جهت محل حقوق بیمه مزایا".split(" "));
+const nz=s=>String(s).replace(/ي/g,"ی").replace(/ك/g,"ک").replace(/\u200c/g," ").replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d)).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)).toLowerCase();
+function analyze(){const g=k=>$(k).value.trim();const C=[];const add=(n,max,got,tip)=>C.push({n,max,got:Math.round(got),tip});
+ const ph=nz(g("phone")).replace(/[\s-]/g,"");const phOk=/^(\+98|0098|0)?9\d{9}$/.test(ph);
+ add("نام و نام خانوادگی",4,g("name").split(/\s+/).filter(Boolean).length>=2?4:(g("name")?2:0),"نام و نام خانوادگی را کامل بنویسید.");
+ add("شماره تماس",5,phOk?5:(g("phone")?2:0),"شماره موبایل را معتبر و کامل وارد کنید (مثل ۰۹۱۲۳۴۵۶۷۸۹).");
+ add("ایمیل",3,/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g("email"))?3:0,"یک ایمیل معتبر اضافه کنید؛ کارفرماها از آن برای پاسخ استفاده می‌کنند.");
+ add("شهر",3,g("city")?3:0,"شهر محل سکونت را بنویسید.");
+ add("عنوان شغلی",5,g("title").length>=3?5:0,"عنوان شغل هدف را زیر نام بنویسید (مثلاً «حسابدار»).");
+ const sl=g("summary").split(/\s+/).filter(Boolean).length;
+ add("درباره من",10,sl===0?0:(sl>=20&&sl<=80?10:5),sl===0?"یک خلاصه ۲ تا ۴ جمله‌ای اضافه کنید.":(sl<20?"خلاصه کوتاه است؛ دست‌کم ۲ تا ۳ جمله بنویسید.":"خلاصه طولانی است؛ آن را زیر ۸۰ کلمه نگه دارید."));
+ const ex=exps.filter(e=>e.t||e.c||e.d);let es=0;
+ if(ex.length){es+=8;es+=8*ex.filter(e=>e.t&&e.c&&e.p).length/ex.length;es+=9*ex.filter(e=>e.d.split("\n").filter(x=>x.trim()).length>=2).length/ex.length}
+ add("سوابق کاری",25,es,ex.length===0?"حتماً سابقه کاری (حتی کارآموزی یا همکاری کوتاه) اضافه کنید.":"برای هر سابقه سمت، محل کار و مدت را کامل کنید و دست‌کم ۲ وظیفه بنویسید.");
+ const ed=edus.filter(e=>e.l||e.f||e.u);
+ add("تحصیلات",10,ed.length?(ed.some(e=>e.l)?6:2)+(ed.some(e=>e.f)?4:0):0,"مقطع تحصیلی و رشته را وارد کنید.");
+ const sk=g("skills").split(/[,،]/).map(s=>s.trim()).filter(Boolean);
+ add("مهارت‌ها",15,sk.length>=5?15:sk.length>=3?10:sk.length?5:0,"دست‌کم ۵ مهارت مرتبط با شغل اضافه کنید.");
+ let kw=null;const adv="";
+ if(adv){const all=nz([g("name"),g("title"),g("summary"),g("skills"),...exps.map(e=>e.t+" "+e.c+" "+e.d),...edus.map(e=>e.l+" "+e.f)].join(" "));
+  const cnt={};nz(adv).split(/[\s.,،؛:!?؟()\-_\/\\"«»]+/).map(w=>w.replace(/(ها|های)$/,"")).filter(w=>w.length>=3&&!SW.has(w)).forEach(w=>cnt[w]=(cnt[w]||0)+1);
+  const top=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]).slice(0,20);const hit=top.filter(w=>all.includes(w));
+  kw={top,hit,miss:top.filter(w=>!hit.includes(w))};
+  add("کلمات کلیدی آگهی",20,top.length?20*hit.length/top.length:0,"این کلمات آگهی در رزومه نیست؛ اگر با تجربه شما درست است، در مهارت‌ها یا شرح وظایف بیاورید: "+kw.miss.slice(0,8).join("، "))}
+ const body=nz([g("summary"),g("skills"),...exps.map(e=>e.t+" "+e.c+" "+e.d)].join(" "));
+ const tw=nz(g("title")).split(/\s+/).map(w=>w.replace(/(ها|های)$/,"")).filter(w=>w.length>=3&&!SW.has(w));
+ const wc=body.split(/\s+/).filter(Boolean).length;
+ add("کلمات کلیدی و حجم رزومه",20,(tw.length?10*tw.filter(w=>body.includes(w)).length/tw.length:0)+(wc>=120?10:wc>=60?5:0),"عنوان شغلی را در خلاصه، مهارت‌ها یا شرح وظایف تکرار کنید و محتوای رزومه را کامل‌تر کنید (حدود ۱۲۰ کلمه یا بیشتر).");
+ kw={hit:[]};return{C,kw}}
+function renderATS(){const{C,kw}=analyze();const got=C.reduce((a,c)=>a+c.got,0),mx=C.reduce((a,c)=>a+c.max,0);const sc=Math.round(100*got/mx);
+ const col=sc>=80?"#16a34a":sc>=50?"#f59e0b":"#dc2626";
+ const lab=sc>=80?"عالی؛ رزومه آماده ارسال است":sc>=50?"خوب، ولی قابل بهبود":"ضعیف؛ نیاز به تکمیل دارد";
+ const bad=C.filter(c=>c.got<c.max).sort((a,b)=>(b.max-b.got)-(a.max-a.got));
+ $("atsOut").innerHTML=`<div class="sc" style="--p:${sc};--c:${col}"><b>${sc}</b><small>از ۱۰۰</small></div><div style="text-align:center;font-weight:800">${lab}</div>`
+ +(kw?"":`<div class="hint" style="text-align:center">برای سنجش کلمات کلیدی، متن آگهی شغلی را در کادر بالا بچسبانید و دوباره تحلیل کنید.</div>`)
+ +((tpl===6||tpl===7)?`<div class="ck bad">⚠️ <b>قالب</b>: قالب‌های دوستونه ممکن است در سیستم‌های خواندن خودکار رزومه به هم بریزند؛ برای ارسال آنلاین قالب کلاسیک، مینیمال یا کارگاهی امن‌تر است.</div>`:"")
+ +(bad.length?`<h2 style="margin-top:12px">پیشنهادهای اصلاح</h2>`+bad.map(c=>`<div class="ck">⚠️ <b>${c.n}</b> (${c.got} از ${c.max}): ${esc(c.tip)}</div>`).join(""):`<div class="ck">✅ همه بخش‌ها کامل است.</div>`)
+ +`<h2 style="margin-top:12px">بخش‌های کامل</h2>`+(C.filter(c=>c.got>=c.max).map(c=>`<span class="okc">✅ ${c.n}</span>`).join("")||`<div class="hint">هنوز بخش کاملی وجود ندارد.</div>`)
+ +(kw&&kw.hit.length?`<div class="hint" style="margin-top:8px">کلمات تطبیق‌داده‌شده: ${kw.hit.map(esc).join("، ")}</div>`:"")}
+let atsT;const atsRun=()=>{clearTimeout(atsT);atsT=setTimeout(renderATS,250)};
+document.addEventListener("input",atsRun);document.addEventListener("click",atsRun);setTimeout(renderATS,300);
 load();renderExps();renderEdus();renderChips();renderTpls();paper();markChips();
 const TK="<span>📘 کتاب «رزومه برنده» | کلمه «رزومه» را در دایرکت اینستاگرام @Gorganjob بفرستید</span><b>✦</b>";$("tr").innerHTML=("<span>📘 کتاب «رزومه برنده»: راهنمای کامل نوشتن رزومه حرفه‌ای شامل اصول رزومه‌نویسی، نمونه‌های آماده، جمله‌های آماده، نکات ارسال رزومه و مصاحبه و چک‌لیست نهایی | برای دریافت کتاب، کلمه «رزومه» را در دایرکت گرگان جاب بفرستید</span><b>✦</b>").repeat(8);
 </script>
