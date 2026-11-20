@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ثبت آگهی | گرگان جاب</title>
+<style>
+:root{--bg:#f6f6f3;--card:#fff;--ink:#1a1a1a;--line:#ddd;--mute:#666}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#1f1f1f;--ink:#f2f2f2;--line:#383838;--mute:#aaa;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,sans-serif;line-height:1.9;padding:16px}
+.w{max-width:640px;margin:0 auto}
+h1{font-size:1.2rem;background:#ffc800;color:#111;margin:-16px -16px 16px;padding:14px;text-align:center}
+label{display:block;font-weight:700;margin-top:12px;font-size:.9rem}
+input,textarea{width:100%;font:inherit;padding:10px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+textarea{min-height:90px}
+.o{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:14px}
+.o b{display:block;margin-bottom:4px}
+.o pre{white-space:pre-wrap;word-break:break-all;margin:0;font-size:.8rem;direction:ltr;text-align:left;background:rgba(0,0,0,.06);border-radius:8px;padding:8px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:8px 18px;background:#111;color:#ffc800;cursor:pointer;margin-top:8px}
+.h{font-size:.82rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>ثبت آگهی جدید (مخصوص مدیر سایت)</h1>
+<label>آگهی</label><input id="t">
+<label>توضیحات تکمیلی آگهی</label><textarea id="b"></textarea>
+<label>لینک (اختیاری)</label><input id="u" dir="ltr" placeholder="https://...">
+<label>برچسب</label><input id="g" list="gl" placeholder="مثلاً استخدام"><datalist id="gl"><option value="استخدام"><option value="کارآموزی"><option value="پاره‌وقت"><option value="دورکاری"><option value="اطلاعیه"></datalist>
+<label>تاریخ (شمسی، مثل ۱۴۰۵/۰۸/۲۹)</label><input id="d" dir="ltr">
+<div class="o"><b>۱) برای فایل news.txt در GitHub (یک خط)</b><pre id="o1"></pre><button data-c="o1">کپی</button>
+<div class="h">این خط را در بالای فایل news.txt بچسبانید و Commit کنید.</div></div>
+<div class="o"><b>۲) برای Google Sheets (ستون‌ها: date, title, body, link, tag)</b><pre id="o2"></pre><button data-c="o2">کپی</button>
+<div class="h">در یک سلول خالی ردیف جدید بچسبانید تا ستون‌ها خودکار جدا شوند.</div></div>
+</div>
+<script>
+function $(i){return document.getElementById(i)}
+function todayJ(){var p={};new Intl.DateTimeFormat("en-u-ca-persian",{year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});return p.year+"/"+p.month+"/"+p.day}
+$("d").value=todayJ();
+function make(){
+  var o={d:$("d").value.trim(),g:$("g").value.trim(),t:$("t").value.trim(),b:$("b").value.trim(),u:$("u").value.trim()};
+  if(!o.u)delete o.u;if(!o.g)delete o.g;
+  $("o1").textContent=o.t?JSON.stringify(o):"";
+  var c=function(s){return String(s).replace(/\t|\r?\n/g," ")};
+  $("o2").textContent=o.t?[o.d,o.t,o.b,o.u||"",o.g||""].map(c).join("\t"):"";
+}
+["t","b","u","g","d"].forEach(function(i){$(i).oninput=make});make();
+[].forEach.call(document.querySelectorAll("button[data-c]"),function(b){b.onclick=function(){
+  var t=$(b.dataset.c).textContent;if(!t)return;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(function(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove()}).then(function(){b.textContent="کپی شد ✓";setTimeout(function(){b.textContent="کپی"},1500)});
+}});
+</script>
+</body>
+</html>

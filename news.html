@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffc800">
+<meta name="description" content="آگهی‌های استخدامی روزانه گرگان جاب">
+<title>آگهی‌ها | گرگان جاب</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="گرگان جاب">
+<style>
+:root{--bg:#f6f6f3;--card:#fff;--ink:#1a1a1a;--mute:#666;--line:#e4e4de;--y:#ffc800;--acc:#8a6500;--accs:#fff7d1;--new:#e5484d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#1f1f1f;--ink:#f2f2f2;--mute:#aaa;--line:#383838;--acc:#ffc800;--accs:#3a3200;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9;padding:16px}
+.hdr{background:#ffc800;color:#111;padding:14px 16px;font-weight:800;font-size:1.1rem;text-align:center;margin:-16px -16px 16px}
+.hdr small{display:block;font-weight:400;font-size:.8rem}
+.hdr img{display:block;margin:0 auto 4px;border-radius:50%}
+.wrap{max-width:720px;margin:0 auto}
+.tb{display:flex;gap:8px}
+.tb input{flex:1;font:inherit;padding:10px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+.tb button{font:inherit;font-weight:800;border:0;border-radius:14px;padding:0 16px;background:#111;color:#ffc800;cursor:pointer}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px}
+.chips button{font:inherit;font-size:.85rem;white-space:nowrap;padding:4px 14px;border-radius:20px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chips button.on{background:var(--y);border-color:#111;color:#111;font-weight:800}
+.st{font-size:.78rem;color:var(--mute);margin:6px 2px 4px}
+.day{font-weight:900;font-size:.95rem;margin:18px 4px 8px;color:var(--acc)}
+.nw{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:10px;box-shadow:0 4px 16px rgba(15,23,42,.06);animation:in .35s both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mt{display:flex;gap:8px;align-items:center;margin-bottom:4px;font-size:.78rem;color:var(--mute)}
+.tg{background:var(--accs);color:var(--acc);border-radius:10px;padding:0 10px;font-weight:700}
+.nw.n{border-color:var(--y);box-shadow:0 4px 18px rgba(255,200,0,.28)}
+.nb{background:var(--new);color:#fff;border-radius:10px;padding:0 9px;font-weight:800}
+.nw h3{font-size:1.02rem;font-weight:900;line-height:1.8}
+.nw p{font-size:.92rem;color:var(--mute);margin-top:2px;white-space:pre-line}
+.nw p.c{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.mo{font:inherit;font-size:.82rem;border:0;background:none;color:var(--acc);font-weight:700;cursor:pointer;padding:0;margin-top:2px}
+.lk{display:inline-block;margin-top:8px;background:#111;color:#ffc800;border-radius:20px;padding:4px 18px;font-weight:800;font-size:.85rem;text-decoration:none}
+.more{display:block;margin:16px auto;font:inherit;font-weight:800;border:2px solid #111;border-radius:30px;padding:8px 28px;background:var(--y);color:#111;cursor:pointer}
+.em{text-align:center;color:var(--mute);padding:40px 0}
+</style>
+</head>
+<body>
+<header class="hdr"><img src="logo.png" width="64" height="64" alt="گرگان جاب">آگهی‌های استخدامی<small>جدیدترین آگهی‌ها، هر بار که باز می‌کنید به‌روز می‌شود</small></header>
+<div class="wrap">
+  <div class="tb"><input id="q" type="search" placeholder="جستجو در آگهی‌ها…"><button id="rf" aria-label="تازه‌سازی">↻</button></div>
+  <div class="chips" id="ch"></div>
+  <div class="st" id="st">در حال بارگذاری…</div>
+  <div id="ls"></div>
+  <button class="more" id="mr" style="display:none">نمایش بیشتر</button>
+</div>
+<script>
+var items=[],tag="",qs="",shown=20,seenBefore=0,PAGE=20;
+function $(i){return document.getElementById(i)}
+function fa(n){return String(n).replace(/\d/g,function(d){return "۰۱۲۳۴۵۶۷۸۹"[d]})}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function safe(u){return /^(https?:\/\/|[A-Za-z0-9_\-\.\/]+\.html)/i.test(u)?u:""}
+var fmt=new Intl.DateTimeFormat("fa-IR-u-ca-persian",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
+function dayKey(t){var d=new Date(t);return d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate()}
+function dayLabel(t){
+  if(!t)return "بدون تاریخ";
+  var now=Date.now();if(dayKey(t)===dayKey(now))return "امروز";if(dayKey(t)===dayKey(now-864e5))return "دیروز";
+  return fmt.format(new Date(t));
+}
+function view(){
+  var list=items.filter(function(x){return (!tag||x.g===tag)&&(!qs||(x.t+" "+x.b+" "+x.g).indexOf(qs)>-1)});
+  var tags=[];items.forEach(function(x){if(x.g&&tags.indexOf(x.g)<0)tags.push(x.g)});
+  $("ch").innerHTML=tags.length?['<button class="'+(tag?"":"on")+'" data-g="">همه</button>'].concat(tags.map(function(g){return '<button class="'+(tag===g?"on":"")+'" data-g="'+esc(g)+'">'+esc(g)+'</button>'})).join(""):"";
+  [].forEach.call($("ch").children,function(b){b.onclick=function(){tag=b.getAttribute("data-g");shown=PAGE;view()}});
+  if(!list.length){$("ls").innerHTML='<div class="em">'+(items.length?"آگهی‌ای با این جستجو پیدا نشد":"هنوز آگهی‌ای ثبت نشده است")+'</div>';$("mr").style.display="none";return}
+  var h="",last="";
+  list.slice(0,shown).forEach(function(x){
+    var dl=dayLabel(x.time);if(dl!==last){h+='<div class="day">'+dl+'</div>';last=dl}
+    var u=safe(x.u),isNew=x.time>seenBefore,long=x.b.length>150;
+    h+='<article class="nw'+(isNew?" n":"")+'"><div class="mt">'+(isNew?'<span class="nb">جدید</span>':"")+(x.g?'<span class="tg">'+esc(x.g)+'</span>':"")+'</div><h3>'+esc(x.t)+'</h3>'
+      +(x.b?'<p class="'+(long?"c":"")+'">'+esc(x.b)+'</p>'+(long?'<button class="mo">ادامه مطلب</button>':""):"")
+      +(u?'<a class="lk" href="'+esc(u)+'"'+(/^http/i.test(u)?' target="_blank" rel="noopener"':"")+'>مشاهده</a>':"")+'</article>';
+  });
+  $("ls").innerHTML=h;
+  [].forEach.call($("ls").querySelectorAll(".mo"),function(b){b.onclick=function(){var p=b.previousSibling;var c=p.classList.toggle("c");b.textContent=c?"ادامه مطلب":"بستن"}});
+  $("mr").style.display=list.length>shown?"block":"none";
+}
+function load(manual){
+  $("st").textContent="در حال به‌روزرسانی…";
+  GJNews.load(function(data,src){
+    items=data;view();
+    var n=new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"});
+    $("st").textContent=src==="net"?"آخرین به‌روزرسانی: "+n+" · "+fa(data.length)+" آگهی":src==="cache"?"در حال دریافت جدیدترین آگهی‌ها… (نمایش نسخه ذخیره‌شده)":(data.length?"اتصال برقرار نشد؛ آخرین آگهی‌های ذخیره‌شده نمایش داده شد":"اتصال برقرار نشد و آگهی‌ای ذخیره نشده است");
+    if(src==="net"){GJNews.markSeen(data)}
+  });
+}
+window.addEventListener("DOMContentLoaded",function(){
+  seenBefore=GJNews.seen();
+  $("q").oninput=function(){qs=this.value.trim();shown=PAGE;view()};
+  $("rf").onclick=function(){load(true)};
+  $("mr").onclick=function(){shown+=PAGE;view()};
+  document.addEventListener("visibilitychange",function(){if(!document.hidden)load()});
+  load();
+});
+</script>
+<script src="pwa.js" defer></script>
+</body>
+</html>

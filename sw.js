@@ -1,7 +1,7 @@
 // Gorgan Job PWA service worker (offline-first).
 // To force an update for every user, change the version below (gj-v2 -> gj-v3).
-const V='gj-v3';
-const SHELL=['./','index.html','azmoon.html','manifest.webmanifest','pwa.js','icon-192.png','icon-512.png','apple-touch-icon.png','logo.png'];
+const V='gj-v4';
+const SHELL=['./','index.html','azmoon.html','manifest.webmanifest','pwa.js','icon-192.png','icon-512.png','apple-touch-icon.png','logo.png','news.html','news.txt'];
 const FONTS=['https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap','https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap'];
 const FONT_HOST=/fonts\.(googleapis|gstatic)\.com$/;
 function tf(u,ms){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms);return fetch(u,{mode:'cors',signal:c.signal}).finally(()=>clearTimeout(t))}
@@ -29,6 +29,12 @@ self.addEventListener('fetch',e=>{
     // pages: try the network (fresh version), fall back to the saved copy when offline
     e.respondWith(fetch(r).then(res=>{const cp=res.clone();caches.open(V).then(c=>c.put(r,cp));return res})
       .catch(()=>caches.match(r,{ignoreSearch:true}).then(m=>m||caches.match('index.html'))));
+    return;
+  }
+  if(u.origin===location.origin&&/news\.txt$/.test(u.pathname)){
+    // news: always try the network first so new items show up immediately; saved copy only when offline
+    const key=u.origin+u.pathname;
+    e.respondWith(fetch(r).then(res=>{if(res.ok){const cp=res.clone();caches.open(V).then(c=>c.put(key,cp))}return res}).catch(()=>caches.match(key)));
     return;
   }
   if(u.origin===location.origin||FONT_HOST.test(u.hostname)){
