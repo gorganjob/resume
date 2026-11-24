@@ -21,14 +21,46 @@
   +'.ib .x{background:transparent;color:#111;font-size:1.2rem;padding:4px 8px}'
   +'.ts{position:fixed;left:50%;transform:translate(-50%,20px);bottom:calc(150px + env(safe-area-inset-bottom,0px));background:#111;color:#ffc800;border:2px solid #ffc800;border-radius:14px;padding:10px 18px;font-weight:700;font-size:.88rem;line-height:1.7;z-index:80;opacity:0;pointer-events:none;transition:.3s;max-width:90%;text-align:center}.ts.show{opacity:1;transform:translate(-50%,0)}';
   var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
+  var IG='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;margin:0 auto"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
   var nav=document.createElement("nav");nav.className="bn";
   nav.innerHTML='<a href="index.html"'+(cur==="rs"?' class="on"':'')+'><span>📄</span>رزومه‌ساز</a>'
    +'<a href="azmoon.html"'+(cur==="ex"?' class="on"':'')+'><span>📝</span>آزمون‌ها</a>'
    +'<a href="articles.html"'+(cur==="ar"?' class="on"':'')+'><span>📚</span>مقالات</a>'
    +'<a href="interview.html"'+(cur==="iv"?' class="on"':'')+'><span>🎤</span>مصاحبه</a>'
    +(SHOW_NEWS?'<a href="news.html"'+(cur==="nw"?' class="on"':'')+'><span>📢<b class="bg" id="nbg" style="display:none"></b></span>آگهی‌ها</a>':'')
-   +'<a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener"><span>📷</span>گرگان جاب</a>';
+   +'<a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener"><span>'+IG+'</span>گرگان جاب</a>';
   document.body.appendChild(nav);
+
+  /* ====== منوی کناری ====== */
+  var mcss='.mb{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;z-index:80;width:42px;height:42px;border-radius:50%;border:2px solid #ffc800;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;padding:0}'
+  +'.mb i{display:block;width:18px;height:2.5px;border-radius:2px;background:#ffc800}'
+  +'header,.hdr{padding-right:58px !important;padding-left:58px !important}'
+  +'.dv{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}'
+  +'.dr{position:fixed;top:0;bottom:0;right:0;z-index:95;width:min(80vw,310px);background:#111;color:#fff;transform:translateX(105%);transition:transform .28s ease;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 18px) 16px calc(env(safe-area-inset-bottom,0px) + 18px);border-left:3px solid #ffc800;overflow-y:auto;font-family:inherit}'
+  +'.mo .dv{opacity:1;visibility:visible}.mo .dr{transform:none}'
+  +'.dr .dh{display:flex;align-items:center;gap:10px;margin-bottom:14px}.dr .dh img{border-radius:50%;width:48px;height:48px}'
+  +'.dr .dh b{flex:1;font-size:1.05rem;color:#ffc800}.dr .dh button{background:transparent;border:0;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;padding:4px 8px}'
+  +'.dr a{display:flex;align-items:center;gap:12px;color:#eee;text-decoration:none;font-weight:700;font-size:.98rem;padding:12px 10px;border-radius:12px}'
+  +'.dr a span{width:26px;text-align:center;font-size:1.25rem}.dr a.on{background:#ffc800;color:#111}'
+  +'.dr hr{border:0;border-top:1px solid #333;margin:8px 0}'
+  +'.dr small{margin-top:auto;padding-top:16px;color:#999;font-size:.75rem;line-height:1.8}'
+  +'.inexam .mb{display:none}';
+  var ms=document.createElement("style");ms.textContent=mcss;document.head.appendChild(ms);
+  var items=[["index.html","rs","📄","رزومه‌ساز"],["azmoon.html","ex","📝","آزمون‌های آمادگی"],["articles.html","ar","📚","مقالات"],["interview.html","iv","🎤","شبیه‌ساز مصاحبه"]];
+  if(SHOW_NEWS)items.push(["news.html","nw","📢","آگهی‌ها"]);
+  var mh='<div class="dv" id="dv"></div><aside class="dr" id="dr" aria-label="منوی سایت"><div class="dh"><img src="logo.png" alt="گرگان جاب"><b>گرگان جاب</b><button type="button" id="dx" aria-label="بستن منو">×</button></div>';
+  items.forEach(function(it){mh+='<a href="'+it[0]+'"'+(cur===it[1]?' class="on"':'')+'><span>'+it[2]+'</span>'+it[3]+'</a>'});
+  mh+='<hr><a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener"><span>'+IG.replace('width="24" height="24"','width="22" height="22"').replace('margin:0 auto','margin:0')+'</span>اینستاگرام گرگان جاب</a><small>بیش از ۸ سال تجربه پوشش کامل استخدامی‌های سراسری و استان گلستان</small></aside>';
+  var mw=document.createElement("div");mw.innerHTML=mh;
+  while(mw.firstChild)document.body.appendChild(mw.firstChild);
+  var mb=document.createElement("button");mb.type="button";mb.className="mb";mb.setAttribute("aria-label","منو");mb.setAttribute("aria-expanded","false");mb.innerHTML="<i></i><i></i><i></i>";
+  document.body.appendChild(mb);
+  function mt(o){document.documentElement.classList.toggle("mo",o);mb.setAttribute("aria-expanded",o?"true":"false")}
+  mb.addEventListener("click",function(){mt(!document.documentElement.classList.contains("mo"))});
+  document.getElementById("dv").addEventListener("click",function(){mt(false)});
+  document.getElementById("dx").addEventListener("click",function(){mt(false)});
+  document.getElementById("dr").addEventListener("click",function(e){if(e.target.closest("a"))mt(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")mt(false)});
 
   /* ====== آگهی‌ها (مشترک بین همه صفحه‌ها) ====== */
   function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
