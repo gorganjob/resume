@@ -55,6 +55,11 @@
           "sizes": "192x192"
         }
       ]
+    },
+    {
+      "name": "مقالات",
+      "url": "./articles.html",
+      "icons": [{"src": "icon-192.png", "sizes": "192x192"}]
     }
   ]
 }

@@ -1,7 +1,7 @@
 // Gorgan Job PWA service worker (offline-first).
 // To force an update for every user, change the version below (gj-v2 -> gj-v3).
-const V='gj-v4';
-const SHELL=['./','index.html','azmoon.html','manifest.webmanifest','pwa.js','icon-192.png','icon-512.png','apple-touch-icon.png','logo.png','news.html','news.txt'];
+const V='gj-v5';
+const SHELL=['./','index.html','azmoon.html','manifest.webmanifest','pwa.js','icon-192.png','icon-512.png','apple-touch-icon.png','logo.png','news.html','news.txt','articles.html'];
 const FONTS=['https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap','https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap'];
 const FONT_HOST=/fonts\.(googleapis|gstatic)\.com$/;
 function tf(u,ms){const c=new AbortController();const t=setTimeout(()=>c.abort(),ms);return fetch(u,{mode:'cors',signal:c.signal}).finally(()=>clearTimeout(t))}
