@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffc800">
+<meta name="description" content="شبیه‌ساز مصاحبه استخدامی گرگان جاب؛ تمرین سوال‌های واقعی مصاحبه با زمان‌سنج و نمونه جواب">
+<title>شبیه‌ساز مصاحبه | گرگان جاب</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="گرگان جاب">
+<style>
+:root{--bg:#f6f6f3;--card:#fff;--ink:#1a1a1a;--mute:#666;--line:#e4e4de;--y:#ffc800;--acc:#8a6500;--accs:#fff7d1;--ok:#1f6b3a;--oks:#e3f4e8;--bad:#b3261e;--neu:#efefea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#141414;--card:#1f1f1f;--ink:#f2f2f2;--mute:#aaa;--line:#383838;--acc:#ffc800;--accs:#3a3200;--ok:#7fd69a;--oks:#173324;--bad:#ff8a80;--neu:#2a2a2a;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9;padding:16px}
+.hdr{background:#ffc800;color:#111;padding:14px 16px;font-weight:800;font-size:1.1rem;text-align:center;margin:-16px -16px 16px}
+.hdr small{display:block;font-weight:400;font-size:.8rem}
+.hdr img{display:block;margin:0 auto 4px;border-radius:50%}
+.wrap{max-width:560px;margin:0 auto}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 4px 16px rgba(15,23,42,.06)}
+button{font:inherit;color:inherit;cursor:pointer}
+.bt{width:100%;font-weight:800;border:0;background:#111;color:#ffc800;border-radius:14px;padding:10px 16px;margin-top:12px}
+.bt.s{background:transparent;color:var(--ink);border:1.5px solid var(--line);font-weight:700;margin-top:0}
+.cd{display:flex;align-items:center;gap:12px;width:100%;text-align:right;padding:12px 14px;margin-top:8px;border-radius:14px;border:1.5px solid var(--line);background:transparent}
+.cd.on{border-color:#111;background:var(--accs)}
+.cd .ic{font-size:1.5rem}
+.cd b{display:block;font-size:.98rem}
+.cd small{color:var(--mute);font-size:.78rem}
+.sg{display:inline-block;padding:2px 14px;font-size:.85rem;border-radius:20px;border:1.5px solid var(--line);background:transparent;margin-left:6px}
+.sg.on{background:var(--y);border-color:#111;color:#111;font-weight:800}
+.st{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:6px}
+.st div{background:var(--neu);border-radius:12px;padding:8px 12px;font-size:.78rem;color:var(--mute)}
+.st b{display:block;font-size:1.2rem;color:var(--ink)}
+.bar{height:5px;background:var(--neu);border-radius:3px;margin:8px 0 14px}.bar div{height:5px;background:var(--y);border-radius:3px;transition:width .3s}
+.q{font-size:1.1rem;font-weight:900;line-height:1.9}
+textarea{width:100%;resize:none;font:inherit;line-height:1.9;margin-top:10px;padding:10px 12px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}
+.er{color:var(--bad);font-size:.82rem;min-height:20px}
+.bx{border-radius:12px;padding:10px 14px;font-size:.9rem;margin-top:10px;line-height:1.9}
+.ck{display:flex;align-items:center;gap:10px;width:100%;text-align:right;padding:8px 12px;margin-top:6px;border-radius:12px;border:1.5px solid var(--line);background:transparent;font-size:.9rem}
+.ck.on{border-color:#111;background:var(--accs)}
+.row{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:.85rem}
+.row a{color:var(--acc);font-weight:700;text-decoration:none}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--mute)}
+.rg{position:relative;width:46px;height:46px}.rg svg{transform:rotate(-90deg)}.rg span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:var(--ink)}
+.h{font-size:1.2rem;font-weight:900}
+.m{color:var(--mute);font-size:.85rem}
+.rs{text-align:center}.rs svg{transform:rotate(-90deg)}.rs .p{margin-top:-64px;height:64px;font-size:1.4rem;font-weight:900;line-height:64px}
+.lk{display:block;margin-top:14px;text-align:center;font-size:.85rem;color:var(--mute);background:none;border:0;text-decoration:underline}
+</style>
+</head>
+<body>
+<header class="hdr"><img src="logo.png" width="64" height="64" alt="گرگان جاب">شبیه‌ساز مصاحبه<small>تمرین کن، نمونه جواب ببین، با اعتمادبه‌نفس برو</small></header>
+<div class="wrap"><div class="box" id="root"></div></div>
+<script>
+/* هر سوال: [متن سوال, نکته جواب خوب, نمونه جواب, شناسه مقاله مرتبط در articles.html]
+   برای افزودن سوال یا دسته جدید، به همین ساختار اضافه کنید. */
+var AT={"interview-questions":"پاسخ به سوال‌های همیشگی","interview-prep":"آماده‌سازی مصاحبه","salary-talk":"مذاکره حقوق","goal-setting":"هدف‌گذاری شغلی","resume-skills":"مهارت‌های رزومه","teamwork":"کار تیمی و ارتباط","interview-retail":"مصاحبه فروشگاه","time-management":"مدیریت زمان","job-seller":"راهنمای فروشندگی","professional-ethics":"اخلاق حرفه‌ای","training-job":"آموزش حین کار","excel-start":"یادگیری اکسل","fast-typing":"تایپ سریع","work-safety":"ایمنی محیط کار","problem-solving":"حل مسئله","job-technician":"کارهای فنی","job-cook":"کار در آشپزخانه","job-bakery":"نانوایی و قنادی","interview-star":"روش STAR","workplace-etiquette":"آداب محیط کار","rejection":"مواجهه با رد شدن","continuous-learning":"یادگیری مداوم","hard-boss":"برخورد با مدیر سخت‌گیر"};
+var C=[
+{n:"عمومی",d:"سوال‌های همه مصاحبه‌ها",ic:"🙋",q:[
+["درباره خودتان بگویید.","یک دقیقه: کی هستید، چه تجربه مرتبطی دارید و چرا برای این شغل مناسب‌اید.","«چهار سال در فروشگاه لوازم خانگی کار کرده‌ام، با مشتری‌ها ارتباط خوبی دارم و دنبال محیطی برای رشد هستم.»","interview-questions"],
+["چرا می‌خواهید اینجا کار کنید؟","با تحقیق قبلی، یک دلیل واقعی درباره مجموعه بگویید.","«فروشگاه شما در منطقه شناخته‌شده است و می‌خواهم در محیطی با مشتری زیاد کار کنم و رشد کنم.»","interview-prep"],
+["نقطه ضعف شما چیست؟","یک ضعف واقعی و کوچک، همراه کاری که برای بهبودش کرده‌اید.","«گاهی زیادی دقیق می‌شوم و کار کند می‌شود؛ حالا برای هر کار زمان تعیین می‌کنم.»","interview-questions"],
+["چرا کار قبلی را ترک کردید؟","بدون بدگویی: رشد، ساعت کاری یا کار در حوزه تخصصی.","«قرارداد من تمام شد و دنبال حوزه‌ای هستم که امکان رشد بیشتری دارد.»","interview-questions"],
+["انتظار حقوق شما چقدر است؟","حقوق معمول را قبلاً بررسی کنید و یک بازه معقول بگویید.","«با توجه به تجربه‌ام، انتظارم در محدوده معمول این موقعیت است و آماده گفت‌وگو هستم.»","salary-talk"],
+["چرا باید شما را استخدام کنیم؟","دو یا سه مهارت مرتبط با آگهی را با مثال بگویید.","«تجربه کار با مشتری و نظم کاری دارم و در شغل قبلی فاکتورها را بدون خطا ثبت می‌کردم.»","resume-skills"],
+["پنج سال دیگر خودتان را کجا می‌بینید؟","هدفی واقع‌بینانه و مرتبط با همین حوزه بگویید.","«دوست دارم در همین حوزه مهارتم را بالا ببرم و مسئولیت بیشتری بگیرم.»","goal-setting"],
+["مهم‌ترین نقاط قوت شما چیست؟","سه ویژگی مرتبط با شغل، هر کدام با یک مثال کوتاه.","«وقت‌شناسی، یادگیری سریع و ارتباط خوب؛ مثلاً در شغل قبلی هفته اول مسئول انبار را یاد گرفتم.»","resume-skills"]]},
+{n:"فروشندگی و خدمات",d:"فروشگاه، صندوق، پذیرش",ic:"🛒",q:[
+["با مشتری عصبانی چه می‌کنید؟","اول گوش بدهید، بعد راه‌حل پیشنهاد دهید؛ بحث نکنید.","«آرام گوش می‌دهم، عذرخواهی می‌کنم و دنبال راه‌حل می‌گردم؛ اگر در اختیارم نبود، به مسئول ارجاع می‌دهم.»","teamwork"],
+["آیا می‌توانید در شیفت‌های مختلف کار کنید؟","صادقانه محدودیت‌هایتان را از ابتدا بگویید.","«صبح و عصر مشکلی ندارم؛ شیفت شب را فقط دو روز در هفته می‌توانم.»","interview-retail"],
+["در ساعت شلوغ چطور کار می‌کنید؟","اولویت‌بندی و حفظ آرامش را با مثال نشان دهید.","«اول مشتری‌های منتظر را راهنمایی می‌کنم و بایگانی را بعد از ساعت شلوغ انجام می‌دهم.»","time-management"],
+["اگر فروش ماهانه کم می‌شد چه می‌کردید؟","ابتکار و پیگیری نشان بدهید.","«نیاز مشتری‌ها را بیشتر می‌پرسم، محصول مکمل پیشنهاد می‌دهم و با مشتری‌های قبلی در تماس می‌مانم.»","job-seller"],
+["اگر در پول برگشتی اشتباه شده بود چه می‌کردید؟","صداقت: بلافاصله اطلاع بدهید و اصلاح کنید.","«به مشتری یا مسئول اطلاع می‌دهم و اشتباه را همان لحظه جبران می‌کنم.»","professional-ethics"],
+["محصول جدید را چطور یاد می‌گیرید؟","روش مشخص یادگیری و پرسش از همکاران را بگویید.","«مشخصات را می‌خوانم، از همکار باتجربه می‌پرسم و با خودم تمرین معرفی می‌کنم.»","training-job"]]},
+{n:"اداری و حسابداری",d:"دفتر، اکسل، مکاتبات",ic:"💼",q:[
+["سطح تسلط شما به اکسل چقدر است؟","دقیق بگویید چه کارهایی را انجام می‌دهید؛ مبالغه نکنید.","«جدول، فرمول‌های جمع و شرطی، فیلتر و نمودار ساده را کار کرده‌ام و پیوت را در حال یادگیری‌ام.»","excel-start"],
+["چند کار را هم‌زمان چطور مدیریت می‌کنید؟","روش اولویت‌بندی را با مثال بگویید.","«فهرست کارهای روز را صبح می‌نویسم و کار مهم و فوری را اول انجام می‌دهم.»","time-management"],
+["اگر در کارتان اشتباهی پیدا می‌کردید؟","مسئولیت‌پذیری: گزارش و اصلاح بدون پنهان‌کاری.","«فوراً به مسئولم اطلاع می‌دهم، اصلاح می‌کنم و روشی برای جلوگیری از تکرارش می‌گذارم.»","professional-ethics"],
+["چطور رازداری را حفظ می‌کنید؟","اطلاعات مجموعه را بیرون از کار بازگو نمی‌کنید.","«اطلاعات کاری را فقط با افراد مجاز در میان می‌گذارم و فایل‌ها را امن نگه می‌دارم.»","professional-ethics"],
+["با همکار مخالف خود چه می‌کنید؟","خصوصی، محترمانه و با تمرکز بر کار صحبت کنید.","«با آرامش و خصوصی صحبت می‌کنم تا راه‌حلی بیابیم که برای کار مفید باشد.»","teamwork"],
+["سرعت و دقت تایپ شما چطور است؟","اگر عدد دارید بگویید و دقت را هم ذکر کنید.","«فارسی را با ده‌انگشتی و دقت خوب تایپ می‌کنم و هر روز تمرین دارم.»","fast-typing"]]},
+{n:"فنی و کارگاهی",d:"برق، تأسیسات، تولید",ic:"🛠",q:[
+["ایمنی را در کار چطور رعایت می‌کنید؟","پوشش حفاظتی، قوانین و گزارش خطر را با مثال بگویید.","«همیشه از وسایل حفاظتی استفاده می‌کنم و هر ایراد دستگاه را فوراً گزارش می‌دهم.»","work-safety"],
+["با مشکلی که تا حالا ندیده‌اید چه می‌کنید؟","روش حل مسئله و پرسش از افراد باتجربه را نشان بدهید.","«مشکل را دقیق بررسی می‌کنم، دستورالعمل را می‌خوانم و از استادکار کمک می‌گیرم.»","problem-solving"],
+["چه ابزار و کارهایی را بلدید؟","فهرست دقیق و واقعی با مدت تجربه.","«سیم‌کشی ساختمان، تابلو برق ساده و عیب‌یابی را دو سال کار کرده‌ام.»","job-technician"],
+["اگر کار نزدیک تحویل بود و عقب بودید؟","اولویت‌بندی، اطلاع‌رسانی و حفظ کیفیت.","«به مسئول اطلاع می‌دهم و کارهای ضروری را اول تمام می‌کنم تا کیفیت پایین نیاید.»","time-management"],
+["دستگاه جدید را چطور یاد می‌گیرید؟","یادگیری از دستورالعمل و همکار.","«دفترچه را می‌خوانم، نحوه کار را از همکار می‌پرسم و در شرایط امن تمرین می‌کنم.»","training-job"],
+["اگر خطایی در کیفیت کارتان بود؟","بپذیرید، اصلاح کنید و از تکرار جلوگیری کنید.","«قبول می‌کنم، آن را اصلاح می‌کنم و مراحل کنترل را قبل از تحویل دقیق‌تر انجام می‌دهم.»","professional-ethics"]]},
+{n:"آشپزی و خدمات غذایی",d:"آشپزخانه، قنادی، نانوایی",ic:"🍳",q:[
+["بهداشت را در آشپزخانه چطور رعایت می‌کنید؟","نکته‌های مشخص: دست‌شویی، دستکش، جداکردن مواد و نظافت.","«قبل از شروع دست‌ها را می‌شویم، مواد خام و پخته را جدا نگه می‌دارم و میز را مرتب تمیز می‌کنم.»","job-cook"],
+["در ساعت شلوغ چطور کار می‌کنید؟","آرامش، هماهنگی با تیم و اولویت‌بندی سفارش‌ها.","«سفارش‌ها را به ترتیب انجام می‌دهم و با همکارانم هماهنگ می‌مانم تا غذا به‌موقع برسد.»","time-management"],
+["اگر دستور پخت را به‌اشتباه انجام می‌دادید؟","صداقت و اصلاح سریع.","«به سرآشپز اطلاع می‌دهم و اگر لازم بود دوباره درست می‌کنم تا کیفیت حفظ شود.»","professional-ethics"],
+["چطور با تیم آشپزخانه کار می‌کنید؟","ارتباط روشن و کمک به همکاران.","«سفارش را شفاف تکرار می‌کنم و اگر همکاری شلوغ بود کمکش می‌کنم.»","teamwork"],
+["آیا شیفت صبح زود یا شب می‌توانید؟","واقع‌بینانه و صادقانه جواب بدهید.","«شیفت صبح زود مشکلی ندارم و در فصل شلوغی می‌توانم ساعت کارم را انعطاف بدهم.»","job-bakery"]]},
+{n:"رفتاری و کار تیمی",d:"سوال‌های تجربی مصاحبه",ic:"🤝",q:[
+["یک موقعیت سخت کاری را تعریف کنید.","با ساختار STAR: موقعیت، وظیفه، اقدام، نتیجه.","«مشتری ناراضی بود؛ مسئولیت پیگیری با من بود؛ مشکل را بررسی و جبران کردم؛ مشتری راضی برگشت.»","interview-star"],
+["انتقاد را چطور می‌پذیرید؟","نشان بدهید بازخورد را فرصت یادگیری می‌دانید.","«انتقاد را با دقت گوش می‌دهم، سوال می‌پرسم و روش کارم را اصلاح می‌کنم.»","workplace-etiquette"],
+["نقش شما در کار تیمی چیست؟","با مثال بگویید چطور همکاری می‌کنید.","«معمولاً هماهنگ‌کننده هستم و اگر همکاری عقب بود کمکش می‌کنم.»","teamwork"],
+["یک شکست یا اشتباه را تعریف کنید.","اشتباه واقعی و کوچک، همراه درسی که گرفتید.","«یک بار فاکتور را دیر ثبت کردم؛ بعد از آن کارم را روزانه چک می‌کنم.»","rejection"],
+["چطور سریع یاد می‌گیرید؟","روش مشخص و یک مثال واقعی.","«یادداشت می‌کنم، سوال می‌پرسم و همان روز تمرین می‌کنم؛ در شغل قبلی ظرف یک هفته مستقل کار می‌کردم.»","continuous-learning"],
+["اگر با نظر مدیر مخالف بودید؟","محترمانه و با دلیل نظرتان را بگویید و تصمیم نهایی را بپذیرید.","«نظرم را خصوصی و با دلیل می‌گویم و اگر مدیر تصمیم دیگری گرفت، همان را اجرا می‌کنم.»","hard-boss"]]}
+];
+var K=["مثال واقعی آوردم","کوتاه و مشخص بودم","بدون بدگویی و اغراق بودم"];
+var KEY="gj_interview",H=[],S={s:"start",c:0,d:60,i:0,p:"ask",a:"",k:[0,0,0],r:[],ql:[]},T=60,iv=null,R=document.getElementById("root");
+try{H=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){H=[]}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(H.slice(-40)))}catch(e){}}
+function fa(n){return String(n).replace(/\d/g,function(d){return "۰۱۲۳۴۵۶۷۸۹"[d]})}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function best(c){var b=-1;H.forEach(function(x){if(x.c===c&&x.p>b)b=x.p});return b}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function ring(){var f=document.getElementById("rf");if(!f)return;f.setAttribute("stroke-dashoffset",(113.1*(1-T/S.d)).toFixed(1));f.setAttribute("stroke",T<=10?"var(--bad)":"#e0a800");document.getElementById("tv").textContent=fa(T)}
+function tick(){clearInterval(iv);T=S.d;iv=setInterval(function(){T--;if(T<=0){T=0;clearInterval(iv);var m=document.getElementById("tm");if(m)m.textContent="زمان تمام شد؛ جوابت را ثبت کن."}ring()},1000)}
+function pool(){return S.c===-1?shuffle([].concat.apply([],C.map(function(x){return x.q}))).slice(0,6):shuffle(C[S.c].q)}
+function render(){
+  clearInterval(iv);var h="";
+  if(S.s==="start"){
+    var tot=H.length,bs=0;H.forEach(function(x){if(x.p>bs)bs=x.p});
+    h='<div class="h">یک دسته انتخاب کن</div><p class="m" style="margin-bottom:10px">سوال‌ها هر بار به‌صورت تصادفی می‌آیند.</p>';
+    if(tot)h+='<div class="st"><div>تمرین‌های انجام‌شده<b>'+fa(tot)+'</b></div><div>بهترین نمره<b>'+fa(bs)+'٪</b></div></div>';
+    C.forEach(function(x,j){var b=best(j);h+='<button class="cd'+(S.c===j?" on":"")+'" data-a="cat" data-n="'+j+'"><span class="ic">'+x.ic+'</span><span><b>'+x.n+'</b><small>'+x.d+' - '+fa(x.q.length)+' سوال'+(b>=0?' - بهترین: '+fa(b)+'٪':'')+'</small></span></button>'});
+    h+='<button class="cd'+(S.c===-1?" on":"")+'" data-a="cat" data-n="-1"><span class="ic">🎲</span><span><b>تمرین ترکیبی</b><small>۶ سوال تصادفی از همه دسته‌ها</small></span></button>';
+    h+='<p class="m" style="margin:14px 0 6px">زمان هر سوال</p><div>';
+    [60,90,120].forEach(function(v){h+='<button class="sg'+(S.d===v?" on":"")+'" data-a="dur" data-n="'+v+'">'+fa(v)+' ثانیه</button>'});
+    h+='</div><button class="bt" data-a="go">شروع تمرین</button>';
+    if(tot)h+='<button class="lk" data-a="clr">پاک کردن سابقه تمرین‌ها</button>';
+  }else if(S.s==="quiz"){
+    var q=S.ql[S.i],nm=S.c===-1?"ترکیبی":C[S.c].n;
+    h='<div class="top"><span>'+nm+' - سوال '+fa(S.i+1)+' از '+fa(S.ql.length)+'</span>';
+    if(S.p==="ask")h+='<span class="rg"><svg width="46" height="46" viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="var(--line)" stroke-width="4"/><circle id="rf" cx="22" cy="22" r="18" fill="none" stroke="#e0a800" stroke-width="4" stroke-linecap="round" stroke-dasharray="113.1" stroke-dashoffset="0"/></svg><span id="tv">'+fa(S.d)+'</span></span>';
+    h+='</div><div class="bar"><div style="width:'+((S.i+(S.p==="review"?1:.5))/S.ql.length*100)+'%"></div></div><p class="q">'+q[0]+'</p>';
+    if(S.p==="ask"){
+      h+='<textarea id="ta" rows="4" placeholder="جوابت را اینجا بنویس…"></textarea><p id="tm" class="er"></p><button class="bt" style="margin-top:2px" data-a="sub">ثبت جواب</button>';
+    }else{
+      h+='<div class="bx" style="background:var(--neu)"><span class="m">جواب تو</span><br>'+esc(S.a)+'</div>';
+      h+='<div class="bx" style="background:var(--oks);color:var(--ok)"><b>نکته: </b>'+q[1]+'</div>';
+      h+='<div class="bx" style="background:var(--accs);color:var(--acc)"><b>نمونه جواب: </b>'+q[2]+'</div>';
+      h+='<p class="m" style="margin:14px 0 2px">خودت را بسنج</p>';
+      K.forEach(function(t,j){h+='<button class="ck'+(S.k[j]?" on":"")+'" data-a="chk" data-n="'+j+'"><span>'+(S.k[j]?"☑":"☐")+'</span>'+t+'</button>'});
+      h+='<button class="bt" data-a="next">'+(S.i+1<S.ql.length?"سوال بعد":"دیدن کارنامه")+'</button>';
+    }
+  }else{
+    var t=0,mx=S.ql.length*3;S.r.forEach(function(x){t+=x});var pc=Math.round(t/mx*100);
+    var lv=pc>=80?"آماده مصاحبه‌ای":pc>=50?"در مسیر خوبی هستی":"نیاز به تمرین بیشتر داری";
+    var pb=best(S.c);
+    h='<div class="rs"><svg width="96" height="96" viewBox="0 0 90 90"><circle cx="45" cy="45" r="34" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="45" cy="45" r="34" fill="none" stroke="#e0a800" stroke-width="8" stroke-linecap="round" stroke-dasharray="213.6" stroke-dashoffset="'+(213.6*(1-pc/100)).toFixed(1)+'"/></svg><div class="p">'+fa(pc)+'٪</div><p class="h" style="margin:8px 0 12px">'+lv+'</p></div>';
+    S.ql.forEach(function(q,j){var l=AT[q[3]];h+='<div class="row"><span style="flex:1">'+q[0]+(l&&S.r[j]<3?'<br><a href="articles.html#'+q[3]+'">مقاله پیشنهادی: '+l+'</a>':'')+'</span><b style="white-space:nowrap">'+fa(S.r[j])+' از ۳</b></div>'});
+    h+='<div class="g2"><button class="bt s" data-a="go">تمرین دوباره</button><button class="bt s" data-a="home">دسته دیگر</button></div>';
+  }
+  R.innerHTML=h;if(S.s==="quiz"&&S.p==="ask"){tick();ring();var ta=document.getElementById("ta");if(ta)ta.addEventListener("input",function(){document.getElementById("tm").textContent=""})}
+  window.scrollTo(0,0);
+}
+R.addEventListener("click",function(e){
+  var b=e.target.closest("[data-a]");if(!b)return;var a=b.getAttribute("data-a"),n=+b.getAttribute("data-n");
+  if(a==="cat"){S.c=n;render()}else if(a==="dur"){S.d=n;render()}
+  else if(a==="go"){S.s="quiz";S.ql=pool();S.i=0;S.p="ask";S.r=[];S.k=[0,0,0];render()}
+  else if(a==="home"){S.s="start";render()}
+  else if(a==="clr"){H=[];save();render()}
+  else if(a==="sub"){var v=document.getElementById("ta").value.trim();if(!v){document.getElementById("tm").textContent="اول جوابت را بنویس";return}S.a=v;S.p="review";S.k=[0,0,0];render()}
+  else if(a==="chk"){S.k[n]=S.k[n]?0:1;render()}
+  else if(a==="next"){S.r.push(S.k[0]+S.k[1]+S.k[2]);if(S.i+1<S.ql.length){S.i++;S.p="ask";S.k=[0,0,0]}else{var t=0;S.r.forEach(function(x){t+=x});H.push({c:S.c,p:Math.round(t/(S.ql.length*3)*100),t:Date.now()});save();S.s="done"}render()}
+});
+render();
+</script>
+<script src="pwa.js" defer></script>
+</body>
+</html>

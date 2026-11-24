@@ -7,7 +7,7 @@
   var SHOW_NEWS=false;
 
   var P=location.pathname;
-  var cur=/azmoon/.test(P)?"ex":/articles/.test(P)?"ar":/news/.test(P)?"nw":"rs";
+  var cur=/azmoon/.test(P)?"ex":/articles/.test(P)?"ar":/interview/.test(P)?"iv":/news/.test(P)?"nw":"rs";
   var low=cur==="rs"?116:76;
   var css='.bn{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;background:#111;border-top:3px solid #ffc800;padding-bottom:env(safe-area-inset-bottom,0px)}'
   +'.bn a{flex:1;text-align:center;color:#bbb;text-decoration:none;font-weight:700;font-size:.74rem;padding:7px 0 6px;line-height:1.5}'
@@ -25,6 +25,7 @@
   nav.innerHTML='<a href="index.html"'+(cur==="rs"?' class="on"':'')+'><span>📄</span>رزومه‌ساز</a>'
    +'<a href="azmoon.html"'+(cur==="ex"?' class="on"':'')+'><span>📝</span>آزمون‌ها</a>'
    +'<a href="articles.html"'+(cur==="ar"?' class="on"':'')+'><span>📚</span>مقالات</a>'
+   +'<a href="interview.html"'+(cur==="iv"?' class="on"':'')+'><span>🎤</span>مصاحبه</a>'
    +(SHOW_NEWS?'<a href="news.html"'+(cur==="nw"?' class="on"':'')+'><span>📢<b class="bg" id="nbg" style="display:none"></b></span>آگهی‌ها</a>':'')
    +'<a href="https://www.instagram.com/gorganjob/" target="_blank" rel="noopener"><span>📷</span>گرگان جاب</a>';
   document.body.appendChild(nav);
